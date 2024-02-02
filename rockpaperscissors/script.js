@@ -1,11 +1,15 @@
 "use strict";
+
+// global variables
 let userChoice;
 let computerChoice;
 let score;
 
+// making the rock paper and scissors buttons work
 document.querySelector(".rock").addEventListener("click", KlikRock);
 document.querySelector(".paper").addEventListener("click", KlikPaper);
 document.querySelector(".scissors").addEventListener("click", KlikScissors);
+// setting user choice based on which button is clicked
 
 function KlikRock() {
   userChoice = "rock";
@@ -25,11 +29,8 @@ function KlikScissors() {
   console.log("SCISSORS");
 }
 
+// Making the random computer choice
 function makeComputerChoice() {
-  document.querySelector("#win").classList.add("hidden");
-  document.querySelector("#lose").classList.add("hidden");
-  document.querySelector("#draw").classList.add("hidden");
-
   const randoNum = Math.floor(Math.random() * 3);
   console.log("compChoice", userChoice);
 
@@ -40,42 +41,46 @@ function makeComputerChoice() {
   } else {
     computerChoice = "scissors";
   }
+
+  console.log("compChoice", userChoice);
+  console.log("RANDO", randoNum);
+  console.log("computerChoice", computerChoice);
+
   getResultat();
 }
 
+// finding out who wins
 function getResultat() {
+  // removing text from last game
+  resetResultText();
   if (userChoice === computerChoice) {
+    // if the players played the same hand
     score = "draw";
+  } else if ((userChoice === "rock" && computerChoice === "paper") || (userChoice === "paper" && computerChoice === "scissors") || (userChoice === "scissors" && computerChoice === "rock")) {
+    // all the instances in which the computer wins
+    score = "lose";
   } else {
-    if ((userChoice === "rock" && computerChoice === "paper") || (userChoice === "paper" && computerChoice === "scissors") || (userChoice === "scissors" && computerChoice === "rock")) {
-      score = "lose";
-    } else {
-      score = "win";
-    }
-    startHandAnimations();
+    // all other instances left: the human player wins
+    score = "win";
   }
+
+  startHandAnimations();
 }
 
 function startHandAnimations() {
+  // adding animation end eventlistener
   document.querySelector("#player1").addEventListener("animationend", handAnimationsend);
-  document.querySelector("#player2").addEventListener("animationend", handAnimationsend);
-
+  // get those hands shaking
   document.querySelector("#player1").classList.add("shake");
   document.querySelector("#player2").classList.add("shake");
-  handAnimationsend();
 }
 
 function handAnimationsend() {
-  document.querySelector("#player1").removeEventListener("animationend", handAnimationsend);
-  document.querySelector("#player2").removeEventListener("animationend", handAnimationsend);
-
-  document.querySelector("#player1").classList.remove("shake");
-  document.querySelector("#player2").classList.remove("shake");
-  document.querySelector("#player1").classList.remove("rock", "paper", "scissors");
-  document.querySelector("#player2").classList.remove("rock", "paper", "scissors");
+  // removing all added shake classes so other classes can be added
+  resetHands();
 
   console.log("Animation ended");
-
+  // showing the correct hand signs
   if (userChoice === "rock") {
     document.querySelector("#player1").classList.add("rock");
   } else if (userChoice === "paper") {
@@ -95,6 +100,7 @@ function handAnimationsend() {
 }
 
 function showWinner() {
+  // show correct winnerscreen
   if (score === "win") {
     document.querySelector("#win").classList.remove("hidden");
   } else if (score === "lose") {
@@ -102,6 +108,17 @@ function showWinner() {
   } else if (score === "draw") {
     document.querySelector("#draw").classList.remove("hidden");
   }
+}
+
+function resetHands() {
+  document.querySelector("#player1").classList.remove("shake", "rock", "paper", "scissors");
+  document.querySelector("#player2").classList.remove("shake", "rock", "paper", "scissors");
+}
+
+function resetResultText() {
+  document.querySelector("#win").classList.add("hidden");
+  document.querySelector("#lose").classList.add("hidden");
+  document.querySelector("#draw").classList.add("hidden");
 }
 
 /* function getComputerChoice() {
