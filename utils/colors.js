@@ -1,12 +1,9 @@
 import { getRandomNumber } from "./numbers.js";
 
-export getRandomHSLColor
+export function getRandomHSLColor() {
+  const h = getRandomNumber(360);
+  const s = getRandomNumber(100);
+  const l = getRandomNumber(100);
 
-function getRandomHSLColor() {
-  const h = getRandomHSLColor(360);
-  const s = getRandomHSLColor(100);
-  const l = getRandomHSLColor(100);
-
-  return `${h}, ${s}%, ${l}%`;
+  return `hsl(${h}, ${s}%, ${l}%)`;
 }
-
