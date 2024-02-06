@@ -33,12 +33,12 @@ const MoreThanTwoSeats = vehicles.filter(HasMoreThanTwoSeats);
 
 //isElectric and owned by Jonas
 function electricAndOwnedByJonas(vehicle) {
-  if (vehicle.isElectric && ownedBy) {
+  if (vehicle.isElectric && vehicle.ownedBy === "Jonas") {
     return vehicle;
   }
 }
 const electricalAndOwnedByJonas = vehicles.filter(electricAndOwnedByJonas);
-showTheseVehicles(electricalAndOwnedByJonas);
+//showTheseVehicles(electricalAndOwnedByJonas);
 
 function showTheseVehicles(arr) {
   arr.forEach((each) => {
