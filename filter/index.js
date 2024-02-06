@@ -47,3 +47,19 @@ function isDog(animal) {
     return false;
   }
 }
+
+// += er en måde at tilføje til en string for at opbygge dem - kan bruge +,*,-, ++ (+1)
+let str = "hej";
+console.log(str);
+str += "du!";
+console.log(str);
+
+let num = 2;
+console.log(num);
+num *= 4;
+console.log(num);
+
+let i = 0;
+console.log(i);
+i += 2;
+console.log(i);
