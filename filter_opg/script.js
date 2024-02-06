@@ -13,7 +13,32 @@ const vehicles = [
 
 const ulPointer = document.querySelector("ul");
 
-showTheseVehicles(vehicles);
+//isElectric
+function isElectric(vehicle) {
+  if (vehicle.isElectric === true) {
+    return vehicle;
+  }
+}
+const allElectricVehicles = vehicles.filter(isElectric);
+//showTheseVehicles(allElectricVehicles);
+
+//HasMoreThanTwoSeats
+function HasMoreThanTwoSeats(vehicle) {
+  if (vehicle.passengers >= 1) {
+    return vehicle;
+  }
+}
+const MoreThanTwoSeats = vehicles.filter(HasMoreThanTwoSeats);
+//showTheseVehicles(MoreThanTwoSeats);
+
+//isElectric and owned by Jonas
+function electricAndOwnedByJonas(vehicle) {
+  if (vehicle.isElectric && ownedBy) {
+    return vehicle;
+  }
+}
+const electricalAndOwnedByJonas = vehicles.filter(electricAndOwnedByJonas);
+showTheseVehicles(electricalAndOwnedByJonas);
 
 function showTheseVehicles(arr) {
   arr.forEach((each) => {
