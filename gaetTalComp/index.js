@@ -1,47 +1,50 @@
 "use strict";
 
-let lownum = 0;
-let highnum = 100;
+let lowNum = 0;
+let highNum = 100;
 let computerGuess;
+let computerGuessText = document.querySelector("h1");
+let numberOfGuesses = 0;
+let userNum = "Korrekt";
 
-computerGuess = lownum + (highnum - lownum) / 2;
+document.querySelector("#forlav").addEventListener("mousedown", tooLowOrHi);
+document.querySelector("#forhoej").addEventListener("mousedown", tooLowOrHi);
+document.querySelector("#rigtig").addEventListener("mousedown", tooLowOrHi);
 
-console.log(computerGuess);
-const h1 = document.querySelector("h1");
+computerGuesses();
 
-/* gaetTal();
-function gaetTal() {
-  computerGuess = Math.round(Math.random() * 100);
-} */
-
-h1.textContent = `jeg gætter på ${computerGuess}`;
-
-document.querySelector(".forhoej").addEventListener("click", forh);
-document.querySelector(".forlav").addEventListener("click", forl);
-document.querySelector(".rigtig").addEventListener("click", right);
-
-gaetTal();
-
-function gaetTal(lownum, highnum) {
-  return lownum + (highnum - lownum) / 2;
+function computerGuesses() {
+  numberOfGuesses++;
+  computerGuess = Math.round(lowNum + (highNum - lowNum) / 2);
+  computerGuessText.textContent = `jeg gætter på ${computerGuess}`;
+  console.log("numberOfGuesses", numberOfGuesses);
 }
 
-let guessCom = gaetTal(50, 100);
-console.log("guessCom", guessCom);
+function tooLowOrHi(evt) {
+  console.log(evt.target.id);
 
-function forh() {
-  computerGuess = guessCom;
-}
-
-function forl() {}
-
-function right() {
-  console.log("korrekt");
-  getResultat();
-}
-
-function getResultat() {
-  if (computerGuess === right) {
-    alert("Tillykke!");
+  if (evt.target.id === "forlav") {
+    lowNum = computerGuess;
+  } else if (evt.target.id === "forhoej") {
+    highNum = computerGuess;
+  } else {
+    computerGuess = userNum;
   }
+
+  computerGuesses();
 }
+
+/* function forl() {
+  console.log("For lavt");
+  lowNum = computerGuess;
+  computerGuesses();
+}
+function forh() {
+  console.log("For højt");
+  highNum = computerGuess;
+  computerGuesses();
+}
+function right() {
+  console.log("Korrekt");
+}
+ */
