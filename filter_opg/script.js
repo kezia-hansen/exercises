@@ -38,7 +38,16 @@ function electricAndOwnedByJonas(vehicle) {
   }
 }
 const electricalAndOwnedByJonas = vehicles.filter(electricAndOwnedByJonas);
-//showTheseVehicles(electricalAndOwnedByJonas);
+showTheseVehicles(electricalAndOwnedByJonas);
+
+//isFueledByRugbrød and has space for more than one
+function isFueledByRugbrødandSpaceForMultiple(vehicle) {
+  if (vehicle.fuel === "Rugbrød" && vehicle.passengers >= 1) {
+    return vehicle;
+  }
+}
+const rugbrødAndMultipleSpaces = vehicles.filter(isFueledByRugbrødandSpaceForMultiple);
+showTheseVehicles(rugbrødAndMultipleSpaces);
 
 function showTheseVehicles(arr) {
   arr.forEach((each) => {
