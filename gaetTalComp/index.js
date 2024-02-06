@@ -20,26 +20,24 @@ document.querySelector(".forhoej").addEventListener("click", forh);
 document.querySelector(".forlav").addEventListener("click", forl);
 document.querySelector(".rigtig").addEventListener("click", right);
 
-function forh() {
-  lownum = 0;
-  highnum = 50;
-  console.log("for højt");
-  getResultat();
+gaetTal();
+
+function gaetTal(lownum, highnum) {
+  return lownum + (highnum - lownum) / 2;
 }
 
-function forl() {
-  lownum = 0;
-  highnum = 75;
-  console.log("for lavt");
+let guessCom = gaetTal(50, 100);
+console.log("guessCom", guessCom);
+
+function forh() {
+  computerGuess = guessCom;
 }
+
+function forl() {}
 
 function right() {
   console.log("korrekt");
   getResultat();
-}
-
-function gaetTal(highnum, lownum = 0) {
-  return lownum + (highnum - lownum) / 2;
 }
 
 function getResultat() {
