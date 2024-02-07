@@ -1,3 +1,21 @@
+document.querySelectorAll("button").forEach((button) => {
+  console.log(button);
+  button.addEventListener("click", btnFilterEVTListener);
+});
+
+function btnFilterEVTListener(evt) {
+  console.log(evt.currentTarget);
+  if (evt.currentTarget.dataset.filter === "*") {
+    showTheseVehicles(vehicles);
+  } else if (evt.currentTarget.dataset.filter === "electric") {
+    showTheseVehicles(vehicles.filter(isElectric));
+  } else if (evt.currentTarget.dataset.filter === "more_than_two_seats") {
+    showTheseVehicles(vehicles.filter(HasMoreThanTwoSeats));
+  } else if (evt.currentTarget.dataset.filter === "electric_owned_by_j") {
+    showTheseVehicles(vehicles.filter(electricAndOwnedByJonas));
+  }
+}
+
 const vehicles = [
   { type: "Bus", fuel: "Diesel", passengers: 45, stops: ["Nørrebrogade", "Elmegade"] },
   { type: "Bil", fuel: "Benzin", passengers: 4, ownedBy: "Klaus" },
@@ -19,7 +37,7 @@ function isElectric(vehicle) {
     return vehicle;
   }
 }
-const allElectricVehicles = vehicles.filter(isElectric);
+//const allElectricVehicles = vehicles.filter(isElectric);
 //showTheseVehicles(allElectricVehicles);
 
 //HasMoreThanTwoSeats
@@ -38,7 +56,7 @@ function electricAndOwnedByJonas(vehicle) {
   }
 }
 const electricalAndOwnedByJonas = vehicles.filter(electricAndOwnedByJonas);
-showTheseVehicles(electricalAndOwnedByJonas);
+//showTheseVehicles(vehicles);
 
 //isFueledByRugbrød and has space for more than one
 function isFueledByRugbrødandSpaceForMultiple(vehicle) {
@@ -47,16 +65,17 @@ function isFueledByRugbrødandSpaceForMultiple(vehicle) {
   }
 }
 const rugbrødAndMultipleSpaces = vehicles.filter(isFueledByRugbrødandSpaceForMultiple);
-showTheseVehicles(rugbrødAndMultipleSpaces);
+showTheseVehicles(vehicles);
 
 function showTheseVehicles(arr) {
+  ulPointer.innerHTML = "  <li><strong>Type</strong></li> <li><strong>Fuel</strong></li><li><strong>Passengers</strong></li><li><strong>Stops</strong></li><li><strong>OwnedBy</strong></li><li><strong>Electric</strong></li><li><strong>Tandem</strong></li>";
   arr.forEach((each) => {
-    ulPointer.innerHTML += `<li>${each.type}</li>`;
-    ulPointer.innerHTML += `<li>${each.fuel}</li>`;
+    ulPointer.innerHTML += `<li>${each.type ?? "-"}</li>`;
+    ulPointer.innerHTML += `<li>${each.fuel ?? "-"}</li>`;
     ulPointer.innerHTML += `<li>${each.passengers}</li>`;
-    ulPointer.innerHTML += `<li>${each.stops}</li>`;
-    ulPointer.innerHTML += `<li>${each.ownedBy}</li>`;
-    ulPointer.innerHTML += `<li>${each.isElectric}</li>`;
-    ulPointer.innerHTML += `<li>${each.isTandem}</li>`;
+    ulPointer.innerHTML += `<li>${each.stops ?? "-"}</li>`;
+    ulPointer.innerHTML += `<li>${each.ownedBy ?? "-"}</li>`;
+    ulPointer.innerHTML += `<li>${each.isElectric ? "X" : ""}</li>`;
+    ulPointer.innerHTML += `<li>${each.isTandem ? "X" : ""}</li>`;
   });
 }

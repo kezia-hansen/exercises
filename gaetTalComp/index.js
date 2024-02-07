@@ -6,12 +6,19 @@ let computerGuess;
 let computerGuessText = document.querySelector("h1");
 let numberOfGuesses = 0;
 let userNum = "Korrekt";
+let image = document.getElementById("image");
 
 document.querySelector("#forlav").addEventListener("mousedown", tooLowOrHi);
 document.querySelector("#forhoej").addEventListener("mousedown", tooLowOrHi);
 document.querySelector("#rigtig").addEventListener("mousedown", tooLowOrHi);
+document.querySelector("#start").addEventListener("mousedown", startGame);
 
-computerGuesses();
+function startGame() {
+  numberOfGuesses = 0;
+  computerGuessText.textContent = `Tænk på et tal mellem 0-100`;
+  image.src = "bearstart.png";
+  computerGuesses();
+}
 
 function computerGuesses() {
   numberOfGuesses++;
@@ -25,26 +32,14 @@ function tooLowOrHi(evt) {
 
   if (evt.target.id === "forlav") {
     lowNum = computerGuess;
+    image.src = "bearlow.png";
   } else if (evt.target.id === "forhoej") {
     highNum = computerGuess;
+    image.src = "bearhigh.png";
   } else {
     computerGuess = userNum;
+    image.src = "bearright.png";
   }
 
   computerGuesses();
 }
-
-/* function forl() {
-  console.log("For lavt");
-  lowNum = computerGuess;
-  computerGuesses();
-}
-function forh() {
-  console.log("For højt");
-  highNum = computerGuess;
-  computerGuesses();
-}
-function right() {
-  console.log("Korrekt");
-}
- */
