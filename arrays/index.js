@@ -39,3 +39,6 @@ console.log(arr2);
 console.log(arr3);
 
 // ARRAY TO STRINGS
+const arra = ["a", "b", "c", "d", "e", "f", "g"];
+let text = arra.toString();
+console.log(text);
