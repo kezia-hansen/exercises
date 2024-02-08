@@ -8,3 +8,9 @@ li {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     list-style-type: none;
 }
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
