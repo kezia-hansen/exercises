@@ -11,22 +11,29 @@
 
 <body>
 
+    <section>
+        <button data-filter="*">Vis alle</button>
+        <button data-filter="electric">Elektriske biler</button>
+        <button data-filter="more_than_two_seats">Mere end to sæder</button>
+        <button data-filter="electric_owned_by_j">Alle eldrevne fartøjer af Jonas</button>
+    </section>
 
-    <button data-filter="*">Vis alle</button>
-    <button data-filter="electric">Elektriske biler</button>
-    <button data-filter="more_than_two_seats">Mere end to sæder</button>
-    <button data-filter="electric_owned_by_j">Alle eldrevne fartøjer af Jonas</button>
-
-    <ul>
-        <li><strong>Type</strong></li>
-        <li><strong>Fuel</strong></li>
-        <li><strong>Passengers</strong></li>
-        <li><strong>Stops</strong></li>
-        <li><strong>OwnedBy</strong></li>
-        <li><strong>Electric</strong></li>
-        <li><strong>Tandem</strong></li>
-    </ul>
-
+    <section>
+        <table id="vehicle-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Fuel</th>
+                    <th>Passengers</th>
+                    <th>Stops</th>
+                    <th>Owned By</th>
+                    <th>Electric</th>
+                    <th>Tandem</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
 
 </body>
 

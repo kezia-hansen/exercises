@@ -29,8 +29,6 @@ const vehicles = [
   { type: "Løbehjul", passengers: 1, isElectric: true },
 ];
 
-const ulPointer = document.querySelector("ul");
-
 //isElectric
 function isElectric(vehicle) {
   if (vehicle.isElectric === true) {
@@ -68,14 +66,20 @@ const rugbrødAndMultipleSpaces = vehicles.filter(isFueledByRugbrødandSpaceForM
 showTheseVehicles(vehicles);
 
 function showTheseVehicles(arr) {
-  ulPointer.innerHTML = "  <li><strong>Type</strong></li> <li><strong>Fuel</strong></li><li><strong>Passengers</strong></li><li><strong>Stops</strong></li><li><strong>OwnedBy</strong></li><li><strong>Electric</strong></li><li><strong>Tandem</strong></li>";
-  arr.forEach((each) => {
-    ulPointer.innerHTML += `<li>${each.type ?? "-"}</li>`;
-    ulPointer.innerHTML += `<li>${each.fuel ?? "-"}</li>`;
-    ulPointer.innerHTML += `<li>${each.passengers}</li>`;
-    ulPointer.innerHTML += `<li>${each.stops ?? "-"}</li>`;
-    ulPointer.innerHTML += `<li>${each.ownedBy ?? "-"}</li>`;
-    ulPointer.innerHTML += `<li>${each.isElectric ? "X" : ""}</li>`;
-    ulPointer.innerHTML += `<li>${each.isTandem ? "X" : ""}</li>`;
+  const tbody = document.querySelector("#vehicle-table tbody");
+  tbody.innerHTML = "";
+
+  arr.forEach((vehicle) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+        <td>${vehicle.type}</td>
+        <td>${vehicle.fuel ?? "-"}</td>
+        <td>${vehicle.passengers}</td>
+        <td>${vehicle.stops ?? "-"}</td>
+        <td>${vehicle.ownedBy ?? "-"}</td>
+        <td>${vehicle.isElectric ? "X" : ""}</td>
+        <td>${vehicle.isTandem ? "X" : ""}</td>
+      `;
+    tbody.appendChild(row);
   });
 }
