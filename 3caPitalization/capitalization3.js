@@ -2,8 +2,6 @@
 
 const first = "peter";
 
-//let result = first.charAt(1).toUpperCase() + first.slice();
-
 let result = first.substring(0, 2).toLowerCase(0, 2) + first.substring(2, 3).toUpperCase(2, 3) + first.substring(3, 5).toLowerCase(3, 5);
 
 console.log(result);
