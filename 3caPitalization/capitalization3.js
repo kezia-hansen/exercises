@@ -1,7 +1,5 @@
 "use strict";
 
-"use script";
-
 const first = "peter";
 
 //let result = first.charAt(1).toUpperCase() + first.slice();
