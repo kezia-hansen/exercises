@@ -4,11 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="style.css">
     <title>Theme switcher</title>
 </head>
 
-<body>
+<body data-filter="light">
+    <header>THEME SWITCHER</header>
+
+    <label for="choose_theme">Choose a theme:</label>
+
+    <select name="themes" id="themes">
+        <option value="">--Please choose an op tion--</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="hawaii">Hawaii</option>
+    </select>
+    <main></main>
+    <footer>FOOTER</footer>
+
+
     <script src="index.js"></script>
 </body>
 

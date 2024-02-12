@@ -1,0 +1,17 @@
+[data-filter="dark"] {
+
+    --bg: blue;
+
+}
+
+[data-filter="light"] {
+    background-color: brown;
+    color: black;
+}
+
+
+
+[data-filter="hawaii"] {
+    background-color: brown;
+    color: black;
+}

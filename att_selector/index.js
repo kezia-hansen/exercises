@@ -1,6 +1,6 @@
 "use script";
 
-document.querySelector('data-filter="bat"').addEventListener("pointerdown", (evt) => {
+document.querySelector('data-filter="bat').addEventListener("pointerdown", (evt) => {
   console.log("hej", evt.currentTarget);
 });
 
