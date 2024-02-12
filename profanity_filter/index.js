@@ -31,3 +31,7 @@ function checkIfSFW() {
   console.log(theText);
   document.querySelector("p").textContent = theText;
 }
+
+function isItSafe() {
+  return curseWords.some((item) => theText.includes(item.bad));
+}
