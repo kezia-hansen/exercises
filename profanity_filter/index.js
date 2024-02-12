@@ -20,18 +20,14 @@ const curseWords = [
   { bad: "marquee", good: "just don't" },
 ];
 
-const btn = document.querySelector(".sfw-btn");
+document.querySelector("button").addEventListener("pointerdown", checkIfSFW);
 
-function replaceCursedWords() {
-  let newText = document.querySelector("p").textContent;
-  curseWords.forEach((word) => {
-    newText = newText.replaceAll(word.bad, word.good);
+function checkIfSFW() {
+  let theText = document.querySelector("p").textContent;
+  curseWords.forEach((wordObject) => {
+    theText = theText.replaceAll(wordObject.bad, wordObject.good);
   });
 
-  document.querySelector("p").textContent = newText;
+  console.log(theText);
+  document.querySelector("p").textContent = theText;
 }
-
-btn.addEventListener("click", () => {
-  replaceCursedWords();
-  console.log("updated");
-});
