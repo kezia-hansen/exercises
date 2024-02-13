@@ -1,17 +1,25 @@
-[data-filter="dark"] {
-
-    --bg: blue;
-
+[data-filter="light"] {
+    --bodybg: black;
+    --border: 8px solid #a71814;
+    --mainbg: #222222;
+    --textcolor: white;
 }
 
-[data-filter="light"] {
-    background-color: brown;
-    color: black;
+
+
+[data-filter="dark"] {
+
+    --bodybg: black;
+    --border: 8px solid #a71814;
+    --mainbg: #222222;
+    --textcolor: white;
 }
 
 
 
 [data-filter="hawaii"] {
-    background-color: brown;
-    color: black;
+    --bodybg: black;
+    --border: 8px solid #a71814;
+    --mainbg: #222222;
+    --textcolor: white;
 }

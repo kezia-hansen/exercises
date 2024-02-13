@@ -5,11 +5,63 @@ button:focus {
     outline: none;
 }
 
-/* centrering */
+/* No centrering */
 body {
     height: 100vh;
+    background: var(--bodybg);
+    font-family: monospace;
+    color: var(--textcolor);
+    margin: 40px 80px;
+    padding: 0;
+}
+
+header {
+    background: var(--mainbg);
+    border: var(--border);
+    padding: 20px;
+    font-size: 1.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background: var(--bg);
+}
+
+header h1 {
+    margin: 0;
+}
+
+label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-weight: bold;
+    margin-left: 339px;
+}
+
+select {
+    padding: 8px;
+}
+
+main {
+    padding: 20px;
+    background: var(--mainbg);
+    border: var(--border)
+}
+
+footer {
+    background: var(--mainbg);
+    border: var(--border);
+    font-size: 2rem;
+    text-align: left;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+img {
+    display: block;
+    width: 32%;
+    height: auto;
+    position: relative;
+    bottom: 32px;
 }
