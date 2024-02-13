@@ -1,25 +1,26 @@
 [data-filter="light"] {
-    --bodybg: black;
-    --border: 8px solid #a71814;
-    --mainbg: #222222;
-    --textcolor: white;
+    --bodybg: #FFCDB2;
+    --border: 8px solid #E5989B;
+    --mainbg: #FFB4A2;
+    --textcolor: #B5838D;
 }
 
 
 
 [data-filter="dark"] {
-
-    --bodybg: black;
-    --border: 8px solid #a71814;
-    --mainbg: #222222;
-    --textcolor: white;
+    --bodybg: #450920;
+    --border: 8px solid #A53860;
+    --mainbg: #DA627D;
+    --textcolor: #FFB4A2;
 }
 
 
 
+
+
 [data-filter="hawaii"] {
-    --bodybg: black;
-    --border: 8px solid #a71814;
-    --mainbg: #222222;
-    --textcolor: white;
+    --bodybg: #04BFBF;
+    --border: 8px solid #bae45e;
+    --mainbg: #ffd278;
+    --textcolor: #F2527D;
 }
