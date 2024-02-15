@@ -1,0 +1,16 @@
+[data-split] {
+    span {
+        font-size: 3rem;
+        display: inline-block;
+        white-space: break-spaces;
+        animation: jump 3s infinite;
+        animation-delay: calc(var(--i) * 0.1s);
+
+    }
+}
+
+@keyframes jump {
+    50% {
+        translate: 0 -50%;
+    }
+}
