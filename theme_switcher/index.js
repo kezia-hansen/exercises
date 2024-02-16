@@ -1,10 +1,8 @@
 "use script";
+const themes = document.querySelector("#themes");
+let currentTheme = "light";
 
-/* document.querySelector('data-theme="light').addEventListener("pointerdown", (evt) => {
-  console.log("hej", evt.currentTarget);
-}); */
-
-document.querySelector("#themes").addEventListener("click", selectChange);
+themes.addEventListener("click", selectChange);
 
 function selectChange(evt) {
   console.log("change", evt.target.value);
