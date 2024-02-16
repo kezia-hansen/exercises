@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+    background-color: grey;
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+    width: 200px;
+    letter-spacing: 1px;
+
+    /*
+  animation-duration: 5s;*/
+    animation: slide 4s linear;
+    animation-fill-mode: forwards;
+}
+
+/*
+}
+*/
+@keyframes slide {
+    0% {
+        box-shadow: var(--bs);
+    }
+
+    100% {
+        box-shadow: var(--bs);
+    }
+}
+
+/* inset 0 0 0 0 #e0e0e0 */
