@@ -1,14 +1,15 @@
 "use strict";
 
-document.querySelector("body").addEventListener("mousemove", colorAniEnd);
+const container = document.querySelector("div");
+container.classList.add("container");
 
-function colorAniEnd() {
-  document.querySelector("a").classList.remove("slide");
-  document.querySelector("body").style.backgroundColor = red;
+function colorAnimationStart() {
+  const btn = document.querySelector("a");
+  btn.classList.add("slide");
+  btn.addEventListener("animationend", colorAnimationEnd);
 }
 
-document.querySelector("a").addEventListener("animationend", animationEnd);
-
-function animationEnd() {
-  document.querySelector("a").style.backgroundColor = "red";
+function colorAnimationEnd() {
+  btn.removeEventListener("animationend", animationEnd);
+  btn.classList.remove("slide");
 }
