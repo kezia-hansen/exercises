@@ -40,3 +40,16 @@ function showTask() {
   listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
+
+document.querySelector("#info_knap").addEventListener("click", on);
+
+function on() {
+  document.querySelector("#info_img").style.display = "block";
+  document.querySelector("#exit3").classList.remove("hide");
+  document.querySelector("#exit3").addEventListener("click", off);
+}
+
+function off() {
+  document.querySelector("#info_img").style.display = "none";
+  document.querySelector("#exit3").classList.add("hide");
+}

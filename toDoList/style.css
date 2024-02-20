@@ -54,7 +54,7 @@ input {
     color: #6E2200;
 }
 
-button {
+.add-task {
     border: none;
     outline: none;
     padding: 16px 50px;
@@ -66,7 +66,7 @@ button {
     border-radius: 40px;
 }
 
-button:hover {
+.add-task:hover {
     background: #CC5819;
     color: #FEE1BB;
 }
@@ -118,6 +118,28 @@ ul li span {
 }
 
 ul li span:hover {
+    background: #CC5819;
+    color: #FEE1BB;
+}
+
+.completed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.completed-task {
+    padding: 16px 50px;
+    border: 2px solid #CC5819;
+    background: #FEE1BB;
+    color: #CC5819;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.completed-task:hover {
     background: #CC5819;
     color: #FEE1BB;
 }
