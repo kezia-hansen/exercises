@@ -19,33 +19,34 @@ function addTask() {
   saveData();
   filterTasks();
 }
-
 listContainer.addEventListener(
   "click",
   function (e) {
     if (e.target.tagName === "LI") {
-      e.target.classList.toggle("checked");
+      const targetTask = e.target;
+      targetTask.classList.toggle("checked");
+
+      if (targetTask.classList.contains("checked")) {
+        targetTask.classList.add("fade-out");
+        // Add fade-out class when task is checked
+        targetTask.addEventListener("transitionend", function () {
+          targetTask.remove(); // Remove the task from the DOM after transition
+          filterTasks(); // Filter tasks after the transition is complete
+        });
+      } else {
+        targetTask.classList.remove("fade-out"); // Remove fade-out class when task is unchecked
+        filterTasks(); // Filter tasks directly after unchecking
+      }
+
       saveData();
-      filterTasks();
     } else if (e.target.tagName === "SPAN") {
       e.target.parentElement.remove();
       saveData();
-      filterTasks();
+      filterTasks(); // Filter tasks directly after removing a task
     }
   },
   false
 );
-
-function saveData() {
-  localStorage.setItem("data", listContainer.innerHTML);
-}
-
-function showTask() {
-  listContainer.innerHTML = localStorage.getItem("data");
-  filterTasks();
-}
-showTask();
-
 const filterSelect = document.getElementById("filter");
 filterSelect.addEventListener("change", function (e) {
   settings.filter = e.target.value;
@@ -60,12 +61,54 @@ function filterTasks() {
   Array.from(tasks).forEach((task) => {
     if (filter === "all") {
       task.style.display = "list-item";
+      task.classList.remove("fade-out"); // Remove fade-out class when filter is "all"
+    } else if (filter === "checked" && task.classList.contains("checked")) {
+      task.style.display = "list-item";
+      task.classList.remove("fade-out"); // Remove fade-out class when filter is "checked"
+    } else if (filter === "unchecked" && !task.classList.contains("checked")) {
+      task.style.display = "list-item";
+      if (task.classList.contains("checked")) {
+        task.classList.add("fade-out");
+      } else {
+        task.classList.remove("fade-out");
+      }
+    } else {
+      task.style.display = "none"; // Hide the task if it doesn't match the filter
+    }
+  });
+}
+
+function saveData() {
+  localStorage.setItem("data", listContainer.innerHTML);
+}
+
+function showTask() {
+  listContainer.innerHTML = localStorage.getItem("data");
+  filterTasks();
+}
+
+showTask();
+
+/*
+function filterTasks() {
+  const filter = settings.filter;
+  const tasks = listContainer.getElementsByTagName("li");
+
+  Array.from(tasks).forEach((task) => {
+    if (filter === "all") {
+      task.style.display = "list-item";
     } else if (filter === "checked" && task.classList.contains("checked")) {
       task.style.display = "list-item";
     } else if (filter === "unchecked" && !task.classList.contains("checked")) {
       task.style.display = "list-item";
+      if (task.classList.contains("checked")) {
+        task.classList.add("fade-out");
+      } else {
+        task.classList.remove("fade-out");
+      }
     } else {
       task.style.display = "none";
     }
   });
 }
+ */

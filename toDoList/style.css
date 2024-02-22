@@ -122,12 +122,11 @@ ul li span:hover {
     color: #FEE1BB;
 }
 
-.completed-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
+/* .completed-container {
+    margin: 1rem;
+    position: relative;
+    height: 3rem;
+} */
 
 /* .completed-task {
     padding: 16px 50px;
@@ -165,7 +164,7 @@ ul li span:hover {
  */
 
 
-#myToggleButton {
+/* #myToggleButton {
     padding: 16px 50px;
     border: 2px solid #CC5819;
     background: #FEE1BB;
@@ -179,4 +178,105 @@ ul li span:hover {
 #myToggleButton.active {
     background: #CC5819;
     color: #FEE1BB;
+}
+ */
+
+/* label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+} */
+
+
+/*
+select {
+    padding: 16px 50px;
+    border: 2px solid #CC5819;
+    background: #FEE1BB;
+    color: #CC5819;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+}
+
+select:hover {
+    background: #CC5819;
+    color: #FEE1BB;
+} */
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+}
+
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+select {
+    width: 28rem;
+    padding: 1rem;
+    border: 2px solid #CC5819;
+    background: #FEE1BB;
+    color: #CC5819;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.select::after {
+    position: relative;
+    outline: none;
+    padding: 16px 30px;
+    border: 2px solid #CC5819;
+    background: #FEE1BB;
+    color: #CC5819;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    content: "\25BC";
+    top: 0;
+    right: 73px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.select:hover::after {
+    background: #CC5819;
+    color: #FEE1BB;
+}
+
+/* Define a fade-out animation */
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Apply the fade-out animation to tasks with the 'fade-out' class */
+ul li.fade-out {
+    animation-name: fade-out;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
 }
