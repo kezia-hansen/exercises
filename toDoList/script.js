@@ -1,8 +1,8 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const settings = { filter: "completed" };
 
 document.querySelector("button").addEventListener("click", addTask);
-
 function addTask() {
   if (inputBox.value === "") {
     alert("You must write something!");
@@ -41,15 +41,25 @@ function showTask() {
 }
 showTask();
 
-document.querySelector("#info_knap").addEventListener("click", on);
+/* /// Add event listener to the toggle button
+document.querySelector("#myToggleButton").addEventListener("click", toggleTasks);
 
-function on() {
-  document.querySelector("#info_img").style.display = "block";
-  document.querySelector("#exit3").classList.remove("hide");
-  document.querySelector("#exit3").addEventListener("click", off);
+// Function to toggle between showing unchecked and checked tasks
+function toggleTasks() {
+  const allTasks = document.querySelectorAll("#list-container li");
+  allTasks.forEach((task) => {
+    if (settings.filter === "unchecked") {
+      if (!task.classList.contains("checked")) {
+        task.style.display = "none"; // Hide unchecked tasks
+      } else {
+        task.style.display = "block"; // Show checked tasks
+      }
+    } else {
+      task.style.display = "block"; // Show all tasks
+    }
+  });
+  // Toggle the filter
+  settings.filter = settings.filter === "unchecked" ? "all" : "unchecked";
 }
-
-function off() {
-  document.querySelector("#info_img").style.display = "none";
-  document.querySelector("#exit3").classList.add("hide");
-}
+ */
+/*******************************************************************/

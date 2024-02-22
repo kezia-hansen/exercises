@@ -129,7 +129,7 @@ ul li span:hover {
     height: 100%;
 }
 
-.completed-task {
+/* .completed-task {
     padding: 16px 50px;
     border: 2px solid #CC5819;
     background: #FEE1BB;
@@ -140,6 +140,43 @@ ul li span:hover {
 }
 
 .completed-task:hover {
+    background: #CC5819;
+    color: #FEE1BB;
+}
+
+/* Add keyframe animation for fading out */
+/* @keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+
+.active {
+    display: block;
+}
+
+ */
+
+
+#myToggleButton {
+    padding: 16px 50px;
+    border: 2px solid #CC5819;
+    background: #FEE1BB;
+    color: #CC5819;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+}
+
+#myToggleButton.active {
     background: #CC5819;
     color: #FEE1BB;
 }
