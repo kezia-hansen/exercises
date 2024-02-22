@@ -122,90 +122,6 @@ ul li span:hover {
     color: #FEE1BB;
 }
 
-/* .completed-container {
-    margin: 1rem;
-    position: relative;
-    height: 3rem;
-} */
-
-/* .completed-task {
-    padding: 16px 50px;
-    border: 2px solid #CC5819;
-    background: #FEE1BB;
-    color: #CC5819;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 40px;
-}
-
-.completed-task:hover {
-    background: #CC5819;
-    color: #FEE1BB;
-}
-
-/* Add keyframe animation for fading out */
-/* @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-
-
-
-.active {
-    display: block;
-}
-
- */
-
-
-/* #myToggleButton {
-    padding: 16px 50px;
-    border: 2px solid #CC5819;
-    background: #FEE1BB;
-    color: #CC5819;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 40px;
-    transition: background-color 0.3s ease;
-}
-
-#myToggleButton.active {
-    background: #CC5819;
-    color: #FEE1BB;
-}
- */
-
-/* label {
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-} */
-
-
-/*
-select {
-    padding: 16px 50px;
-    border: 2px solid #CC5819;
-    background: #FEE1BB;
-    color: #CC5819;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 40px;
-    transition: background-color 0.3s ease;
-}
-
-select:hover {
-    background: #CC5819;
-    color: #FEE1BB;
-} */
-
-
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -261,7 +177,6 @@ select {
     color: #FEE1BB;
 }
 
-/* Define a fade-out animation */
 @keyframes fade-out {
     from {
         opacity: 1;
@@ -272,7 +187,6 @@ select {
     }
 }
 
-/* Apply the fade-out animation to tasks with the 'fade-out' class */
 ul li.fade-out {
     animation-name: fade-out;
     animation-duration: 2s;
