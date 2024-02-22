@@ -1,8 +1,9 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-const settings = { filter: "completed" };
+const settings = { filter: "all" };
 
 document.querySelector("button").addEventListener("click", addTask);
+
 function addTask() {
   if (inputBox.value === "") {
     alert("You must write something!");
@@ -16,6 +17,7 @@ function addTask() {
   }
   inputBox.value = "";
   saveData();
+  filterTasks();
 }
 
 listContainer.addEventListener(
@@ -24,9 +26,11 @@ listContainer.addEventListener(
     if (e.target.tagName === "LI") {
       e.target.classList.toggle("checked");
       saveData();
+      filterTasks();
     } else if (e.target.tagName === "SPAN") {
       e.target.parentElement.remove();
       saveData();
+      filterTasks();
     }
   },
   false
@@ -38,28 +42,30 @@ function saveData() {
 
 function showTask() {
   listContainer.innerHTML = localStorage.getItem("data");
+  filterTasks();
 }
 showTask();
 
-/* /// Add event listener to the toggle button
-document.querySelector("#myToggleButton").addEventListener("click", toggleTasks);
+const filterSelect = document.getElementById("filter");
+filterSelect.addEventListener("change", function (e) {
+  settings.filter = e.target.value;
+  saveData();
+  filterTasks();
+});
 
-// Function to toggle between showing unchecked and checked tasks
-function toggleTasks() {
-  const allTasks = document.querySelectorAll("#list-container li");
-  allTasks.forEach((task) => {
-    if (settings.filter === "unchecked") {
-      if (!task.classList.contains("checked")) {
-        task.style.display = "none"; // Hide unchecked tasks
-      } else {
-        task.style.display = "block"; // Show checked tasks
-      }
+function filterTasks() {
+  const filter = settings.filter;
+  const tasks = listContainer.getElementsByTagName("li");
+
+  Array.from(tasks).forEach((task) => {
+    if (filter === "all") {
+      task.style.display = "list-item";
+    } else if (filter === "checked" && task.classList.contains("checked")) {
+      task.style.display = "list-item";
+    } else if (filter === "unchecked" && !task.classList.contains("checked")) {
+      task.style.display = "list-item";
     } else {
-      task.style.display = "block"; // Show all tasks
+      task.style.display = "none";
     }
   });
-  // Toggle the filter
-  settings.filter = settings.filter === "unchecked" ? "all" : "unchecked";
 }
- */
-/*******************************************************************/
